@@ -30,7 +30,7 @@ var TENTHS_LESS_THAN_HUNDRED = [
  * @param {boolean} [asOrdinal] - Deprecated, use toWordsOrdinal() instead!
  * @returns {string}
  */
-function toWords(number: number|string, asOrdinal: boolean) : string {
+function toWords(number: number|string, asOrdinal?: boolean) : string {
     var words;
     var num = parseInt(number.toString(), 10);
 
@@ -48,9 +48,8 @@ function toWords(number: number|string, asOrdinal: boolean) : string {
     return asOrdinal ? makeOrdinal(words) : words;
 }
 
-function generateWords(number: number): string {
-    var remainder: number, word: string,
-        words: string[] = arguments[1];
+function generateWords(number: number, words?: string[]): string {
+    var remainder: number, word: string = arguments[1];
 
     // We’re done
     if (number === 0) {
