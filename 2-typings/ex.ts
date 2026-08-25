@@ -32,7 +32,7 @@ var TENTHS_LESS_THAN_HUNDRED = [
  */
 function toWords(number: number|string, asOrdinal: boolean) : string {
     var words;
-    var num = parseInt(number, 10);
+    var num = parseInt(number.toString(), 10);
 
     if (!isFinite(num)) {
         throw new TypeError(
@@ -49,11 +49,11 @@ function toWords(number: number|string, asOrdinal: boolean) : string {
 }
 
 function generateWords(number: number): string {
-    var remainder, word,
-        words = arguments[1];
+    var remainder: number, word: string,
+        words: string[] = arguments[1];
 
     // We’re done
-    if (number `===` 0) {
+    if (number === 0) {
         return !words ? 'zero' : words.join(' ').replace(/,$/, '');
     }
     // First run
